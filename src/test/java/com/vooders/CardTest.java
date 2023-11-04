@@ -39,18 +39,18 @@ class CardTest {
 
     @Test
     void a_low_card_is_lower_than_a_high_card() {
-        Card highCard = new Card("2","♣", 2);
-        Card lowCard = new Card("4", "♣", 4);
+        Card lowCard = new Card("2","♣", 2);
+        Card highCard = new Card("4", "♣", 4);
 
-        assertTrue(highCard.isLowerThan(lowCard));
+        assertTrue(lowCard.isLowerThan(highCard));
     }
 
     @Test
     void cards_with_the_same_value_are_equal() {
-        Card lowCard = new Card("K", "♣",  10);
-        Card highCard = new Card("10", "♣", 10);
+        Card king = new Card("K", "♣",  10);
+        Card ten = new Card("10", "♣", 10);
 
-        assertEquals(highCard, lowCard);
+        assertEquals(king, ten);
     }
 
     @Test
