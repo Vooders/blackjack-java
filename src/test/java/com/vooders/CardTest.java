@@ -31,10 +31,10 @@ class CardTest {
 
     @Test
     void a_high_card_is_greater_than_a_lower_card() {
-        Card highCard = new Card("2","♣", 2);
-        Card lowCard = new Card("4", "♣", 4);
+        Card lowCard = new Card("2","♣", 2);
+        Card highCard = new Card("4", "♣", 4);
 
-        assertTrue(lowCard.isGreaterThan(highCard));
+        assertTrue(highCard.isGreaterThan(lowCard));
     }
 
     @Test
