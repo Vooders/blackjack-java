@@ -9,8 +9,8 @@ public class Game {
     private boolean gameRunning;
 
     public Game(BufferedReader reader, Deck deck) {
-        this.reader = reader;
         this.gameRunning = false;
+        this.reader = reader;
         this.deck = deck;
     }
     
@@ -21,12 +21,8 @@ public class Game {
         while (gameRunning) {
             print("(d)eal, (q)uit");
             switch (reader.readLine()) {
-                case "d" -> {
-                    playRound();
-                }
-                case "q" -> {
-                    System.exit(0);
-                }
+                case "d" -> playRound();
+                case "q" -> System.exit(0);
             }
         }
     }
@@ -45,8 +41,6 @@ public class Game {
                     player.addCard(deck.takeCard());
                     display(dealer, player);
                     if (player.isBust()) {
-                        print("BUST");
-                        print("");
                         roundActive = false;
                     }
                 }
@@ -55,20 +49,27 @@ public class Game {
                         dealer.addCard(deck.takeCard());
                         display(dealer, player);
                     }
-                    if (dealer.isBust()) {
-                        print("Dealer BUST - You win");
-                    } else if (player.isGreaterThan(dealer)) {
-                        print("You win");
-                    } else if (player.equals(dealer)) {
-                        print("Draw");
-                    } else {
-                        print("Dealer wins");
-                    }
-                    print("");
                     roundActive = false;
                 }
             }
         }
+
+        printRoundResult(player, dealer);
+    }
+
+    private void printRoundResult(Hand player, Hand dealer) {
+        if (player.isBust()) {
+            print("BUST - You lose");
+        } else if (dealer.isBust()) {
+            print("Dealer BUST - You win");
+        } else if (player.isGreaterThan(dealer)) {
+            print("You win");
+        } else if (player.equals(dealer)) {
+            print("Draw");
+        } else {
+            print("Dealer wins");
+        }
+        print("");
     }
 
     private void display(Hand dealer, Hand player) {
