@@ -1,4 +1,4 @@
-package com.vooders;
+package com.vooders.blackjack;
 
 import java.util.ArrayList;
 import java.util.List;

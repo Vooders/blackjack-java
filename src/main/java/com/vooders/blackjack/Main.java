@@ -1,4 +1,4 @@
-package com.vooders;
+package com.vooders.blackjack;
 
 public class Main {
     public static void main(String[] args) {

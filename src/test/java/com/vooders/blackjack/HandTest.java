@@ -1,4 +1,4 @@
-package com.vooders;
+package com.vooders.blackjack;
 
 import org.junit.jupiter.api.Test;
 
