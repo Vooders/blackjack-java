@@ -1,6 +1,5 @@
 package com.vooders.blackjack;
 
-import com.vooders.blackjack.Card;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
