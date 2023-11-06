@@ -8,6 +8,7 @@ public class Hand implements Comparable<Hand> {
 
     private final List<Card> cards;
     private static final int BUST_LIMIT = 21;
+    private static final int BLACKJACK = 21;
 
     public Hand(Card fistCard, Card secondCard) {
         cards = new ArrayList<>();
@@ -73,5 +74,12 @@ public class Hand implements Comparable<Hand> {
 
     public String toDealerString() {
         return cards.get(0).toString() + ", X";
+    }
+
+    public boolean hasBlackJack() {
+        if (cards.size() != 2) {
+            return false;
+        }
+        return getTotal() == BLACKJACK;
     }
 }

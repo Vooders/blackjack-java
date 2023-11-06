@@ -24,6 +24,35 @@ class HandTest {
     }
 
     @Test
+    void hasBlackJack_is_true_if_hand_is_blackjack() {
+        Card fistCard = new Card("K", "s", 10);
+        Card secondCard = new Card("A", "s", 11);
+        Hand hand = new Hand(fistCard, secondCard);
+
+        assertTrue(hand.hasBlackJack());
+    }
+
+    @Test
+    void hasBlackJack_is_false_if_less_than_21() {
+        Card fistCard = new Card("K", "s", 10);
+        Card secondCard = new Card("3", "s", 3);
+        Hand hand = new Hand(fistCard, secondCard);
+
+        assertFalse(hand.hasBlackJack());
+    }
+
+    @Test
+    void hasBlackJack_is_false_if_more_than_2_cards() {
+        Card fistCard = new Card("K", "s", 10);
+        Card secondCard = new Card("3", "s", 3);
+        Hand hand = new Hand(fistCard, secondCard);
+
+        hand.addCard(new Card("8", "s", 8));
+
+        assertFalse(hand.hasBlackJack());
+    }
+
+    @Test
     void can_add_a_card_to_a_hand() {
         Hand hand = new Hand(
                 new Card("K", "s", 10),

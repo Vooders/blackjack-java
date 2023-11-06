@@ -39,7 +39,7 @@ public class Game {
             switch (reader.readLine()) {
                 case "h" -> {
                     player.addCard(deck.takeCard());
-                    if (player.isBust()) {
+                    if (player.isBust() || player.hasBlackJack()) {
                         roundActive = false;
                     }
                 }
@@ -67,6 +67,8 @@ public class Game {
             print("You win");
         } else if (player.equals(dealer)) {
             print("Draw");
+        } else if (player.hasBlackJack()) {
+            print("Blackjack!");
         } else {
             print("Dealer wins");
         }
