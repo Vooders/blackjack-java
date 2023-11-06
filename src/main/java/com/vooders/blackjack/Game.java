@@ -55,6 +55,9 @@ public class Game {
 
         display(dealer.toString(), player.toString());
 
+        deck.addCards(dealer.getCards());
+        deck.addCards(player.getCards());
+
         printRoundResult(player, dealer);
     }
 
