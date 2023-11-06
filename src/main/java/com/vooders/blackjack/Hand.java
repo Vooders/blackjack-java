@@ -68,6 +68,10 @@ public class Hand implements Comparable<Hand> {
 
     @Override
     public String toString() {
-        return cards.toString();
+        return cards.toString() + " " + getTotal();
+    }
+
+    public String toDealerString() {
+        return cards.get(0).toString() + ", X";
     }
 }

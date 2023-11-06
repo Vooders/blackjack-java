@@ -32,14 +32,13 @@ public class Game {
         Hand dealer = new Hand(deck.takeCard(), deck.takeCard());
         Hand player = new Hand(deck.takeCard(), deck.takeCard());
 
-        display(dealer, player);
+        display(dealer.toDealerString(), player.toString());
 
         while(roundActive) {
             print("(h) hit; (s) stick");
             switch (reader.readLine()) {
                 case "h" -> {
                     player.addCard(deck.takeCard());
-                    display(dealer, player);
                     if (player.isBust()) {
                         roundActive = false;
                     }
@@ -47,12 +46,14 @@ public class Game {
                 case "s" -> {
                     while (dealer.getTotal() < 17) {
                         dealer.addCard(deck.takeCard());
-                        display(dealer, player);
                     }
                     roundActive = false;
                 }
             }
+            display(dealer.toDealerString(), player.toString());
         }
+
+        display(dealer.toString(), player.toString());
 
         printRoundResult(player, dealer);
     }
@@ -72,11 +73,11 @@ public class Game {
         print("");
     }
 
-    private void display(Hand dealer, Hand player) {
+    private void display(String dealer, String player) {
         print("Dealer");
-        print(dealer.toString() + " " + dealer.getTotal());
+        print(dealer);
         print("Player");
-        print(player.toString() + " " + player.getTotal());
+        print(player);
     }
     
     private void print(String line) {

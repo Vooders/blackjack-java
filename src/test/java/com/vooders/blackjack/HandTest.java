@@ -105,14 +105,25 @@ class HandTest {
     }
 
     @Test
-    void hand_string_value_should_be_all_its_cards_string_values() {
+    void hand_string_value_should_be_all_its_cards_string_values_and_total() {
         Hand hand = new Hand(
                 new Card("10", "s", 10),
                 new Card("Q", "h", 10));
         hand.addCard(new Card("K", "s", 10));
 
-        String expectedString = "[10s, Qh, Ks]";
+        String expectedString = "[10s, Qh, Ks] 30";
 
         assertEquals(expectedString, hand.toString());
+    }
+
+    @Test
+    void dealer_string_should_only_show_first_card_and_no_total() {
+        Hand hand = new Hand(
+                new Card("10", "s", 10),
+                new Card("Q", "h", 10));
+
+        String expectedString = "10s, X";
+
+        assertEquals(expectedString, hand.toDealerString());
     }
 }
