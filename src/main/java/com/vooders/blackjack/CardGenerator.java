@@ -13,6 +13,35 @@ public class CardGenerator {
                 .collect(Collectors.toList());
     }
 
+    public List<Card> generateBlackjackDeck() {
+        return List.of(
+                new Card("A", "♣", 11),
+                new Card("10", "♣", 10),
+                new Card("A", "♣", 11),
+                new Card("10", "♣", 10),
+                new Card("A", "♣", 11),
+                new Card("10", "♣", 10),
+                new Card("A", "♣", 11),
+                new Card("10", "♣", 10),
+                new Card("A", "♣", 11),
+                new Card("10", "♣", 10),
+                new Card("A", "♣", 11),
+                new Card("10", "♣", 10),
+                new Card("A", "♣", 11),
+                new Card("10", "♣", 10),
+                new Card("A", "♣", 11),
+                new Card("10", "♣", 10),
+                new Card("A", "♣", 11),
+                new Card("10", "♣", 10),
+                new Card("A", "♣", 11),
+                new Card("10", "♣", 10),
+                new Card("A", "♣", 11),
+                new Card("10", "♣", 10),
+                new Card("A", "♣", 11),
+                new Card("10", "♣", 10)
+        );
+    }
+
     private List<Card> buildSuit(String suit) {
         return List.of(
                 new Card("2", suit, 2),

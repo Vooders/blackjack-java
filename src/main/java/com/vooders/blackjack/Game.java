@@ -35,11 +35,13 @@ public class Game {
         display(dealer.toDealerString(), player.toString());
 
         while(roundActive) {
+            if(player.hasBlackJack()) break;
+
             print("(h) hit; (s) stick");
             switch (reader.readLine()) {
                 case "h" -> {
                     player.addCard(deck.takeCard());
-                    if (player.isBust() || player.hasBlackJack()) {
+                    if (player.isBust()) {
                         roundActive = false;
                     }
                 }
@@ -62,7 +64,9 @@ public class Game {
     }
 
     private void printRoundResult(Hand player, Hand dealer) {
-        if (player.isBust()) {
+        if (player.hasBlackJack()) {
+            print("Blackjack!");
+        } else if (player.isBust()) {
             print("BUST - You lose");
         } else if (dealer.isBust()) {
             print("Dealer BUST - You win");
@@ -70,9 +74,7 @@ public class Game {
             print("You win");
         } else if (player.equals(dealer)) {
             print("Draw");
-        } else if (player.hasBlackJack()) {
-            print("Blackjack!");
-        } else {
+        } else  {
             print("Dealer wins");
         }
         print("");
